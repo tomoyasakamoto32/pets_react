@@ -3,10 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Route, BrowserRouter, Switch } from 'react-router-dom'
+import Login from './components/Login'
+import { CookiesProvider } from 'react-cookie'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  <BrowserRouter>
+  <CookiesProvider>
+    <Switch>
+      <Route exact path="/">
+        <Login/>
+      </Route>
+      <Route path="/home">
+        <App/>
+      </Route>
+    </Switch>
+  </CookiesProvider>
+  </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
